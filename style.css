@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f6f9;
+}
+
+header {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.produto {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background: #25D366;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #111;
+  color: white;
+}

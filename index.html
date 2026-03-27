@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Gráfica Araguaia</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #eef1f5;
+}
+
+header {
+  background: linear-gradient(90deg, #000, #333);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+header img {
+  max-width: 200px;
+}
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.produto {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.produto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px;
+  width: 150px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  background: #25D366;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* MODAL (imagem grande) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+
+.modal img {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <img src="imagens/logo.png.png">
+  <h2>Gráfica Araguaia</h2>
+</header>
+
+<div class="container">
+
+  <h2>Produtos</h2>
+
+  <!-- PRODUTO -->
+  <div class="produto">
+    <img src="imagens/cartao.jpg.jpeg" onclick="abrirImagem(this.src)">
+    <h3>Cartão de Visita</h3>
+    <input type="number" id="qtd1">
+    <button onclick="enviarWhats('Cartão de Visita','qtd1')">Consultar preço</button>
+  </div>
+
+  <div class="produto">
+    <img src="imagens/panfleto.jpg.jpeg" onclick="abrirImagem(this.src)">
+    <h3>Panfleto</h3>
+    <input type="number" id="qtd2">
+    <button onclick="enviarWhats('Panfleto','qtd2')">Consultar preço</button>
+  </div>
+
+  <div class="produto">
+    <img src="imagens/banner.jpg.png" onclick="abrirImagem(this.src)">
+    <h3>Banner</h3>
+    <input type="number" id="qtd3">
+    <button onclick="enviarWhats('Banner','qtd3')">Consultar preço</button>
+  </div>
+
+  <div class="produto">
+    <img src="imagens/adesivo.jpg.png" onclick="abrirImagem(this.src)">
+    <h3>Adesivo</h3>
+    <input type="number" id="qtd4">
+    <button onclick="enviarWhats('Adesivo','qtd4')">Consultar preço</button>
+  </div>
+
+  <div class="produto">
+    <img src="imagens/blocos.jpg.png" onclick="abrirImagem(this.src)">
+    <h3>Blocos</h3>
+    <input type="number" id="qtd5">
+    <button onclick="enviarWhats('Blocos','qtd5')">Consultar preço</button>
+  </div>
+
+  <div class="produto">
+    <img src="imagens/carimbo.jpg.png" onclick="abrirImagem(this.src)">
+    <h3>Carimbos</h3>
+    <input type="number" id="qtd6">
+    <button onclick="enviarWhats('Carimbos','qtd6')">Consultar preço</button>
+  </div>
+
+  <div class="produto">
+    <img src="imagens/tapete.jpg.png" onclick="abrirImagem(this.src)">
+    <h3>Tapetes</h3>
+    <input type="number" id="qtd7">
+    <button onclick="enviarWhats('Tapetes','qtd7')">Consultar preço</button>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <span onclick="fecharImagem()">×</span>
+  <img id="imgGrande">
+</div>
+
+<script>
+function enviarWhats(produto, campoId) {
+  var qtd = document.getElementById(campoId).value;
+
+  if(qtd === "") {
+    alert("Digite a quantidade!");
+    return;
+  }
+
+  var numero = "556299680928";
+
+  var mensagem = "Olá, gostaria de um orçamento:%0A%0A" +
+                 "Produto: " + produto + "%0A" +
+                 "Quantidade: " + qtd;
+
+  window.open("https://wa.me/" + numero + "?text=" + mensagem);
+}
+
+// ABRIR IMAGEM
+function abrirImagem(src) {
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("imgGrande").src = src;
+}
+
+// FECHAR
+function fecharImagem() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
